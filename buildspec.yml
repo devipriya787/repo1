@@ -35,7 +35,7 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
       - docker push 918897471280.dkr.ecr.us-east-2.amazonaws.com/ruby-repo:latest
-      - docker push $REPO_URL:$IMAGE_TAG
+      
       - echo Writing image definitions file...
       - printf '[{"name":"web","imageUri":"%s"}]' $REPO_URL:$IMAGE_TAG > imagedefinitions.json
 artifacts:
