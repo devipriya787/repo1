@@ -13,7 +13,7 @@ phases:
       - echo Logging in to Amazon ECR....
       - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"  &&  unzip awscliv2.zip   &&  sudo ./aws/install
       - aws --version
-      - $(aws ecr get-login --no-include-email --region $CI_REGION)
+      - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 918897471280.dkr.ecr.us-east-2.amazonaws.com
 
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - echo "The commit hash is $COMMIT_HASH"
